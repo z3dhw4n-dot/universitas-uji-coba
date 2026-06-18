@@ -1,0 +1,86 @@
+body{
+    margin:0;
+    background:#FFFFFF;
+    font-family:Helvetica,sans-serif;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:40px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo{
+    width:120px;
+}
+
+h1{
+    color:#04316C;
+}
+
+.slogan{
+    color:#88C4FF;
+}
+
+.slide{
+    display:none;
+}
+
+.slide.active{
+    display:block;
+}
+
+label{
+    display:block;
+    margin-top:20px;
+    color:#04316C;
+    font-weight:bold;
+}
+
+small{
+    display:block;
+    color:#666;
+    margin-bottom:6px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+textarea{
+    min-height:120px;
+}
+
+button{
+    background:#04316C;
+    color:white;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    background:#88C4FF;
+}
+
+.btn-group{
+    display:flex;
+    gap:15px;
+}
+
+.check{
+    margin-top:20px;
+}
