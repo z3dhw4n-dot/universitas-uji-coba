@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendaftaran Mahasiswa Baru</title>
+
+<style>
+:root{
+    --primary:#04316C;
+    --secondary:#88C4FF;
+    --white:#FFFFFF;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body{
+    background:#f5f9ff;
+    color:var(--primary);
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+.header{
+    background:var(--white);
+    padding:30px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    margin:auto;
+    background:var(--primary);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:34px;
+    font-weight:bold;
+}
+
+.header h1{
+    margin-top:15px;
+    color:var(--primary);
+}
+
+.slogan{
+    margin-top:8px;
+    color:#4f6585;
+    font-size:15px;
+}
+
+.form-card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.step{
+    display:none;
+}
+
+.step.active{
+    display:block;
+}
+
+.section-title{
+    margin-bottom:25px;
+    color:var(--primary);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.input-group.full{
+    grid-column:span 2;
+}
+
+label{
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.note{
+    font-size:12px;
+    color:#666;
+    margin-top:4px;
+}
+
+input,
+select,
+textarea{
+    padding:14px;
+    border:2px solid #d6e6ff;
+    border-radius:12px;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--secondary);
+}
+
+textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+.checkbox-area{
+    margin-top:25px;
+    background:#f3f8ff;
+    padding:20px;
+    border-radius:12px;
+}
+
+.checkbox-area label{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-weight:normal;
+}
+
+.question-box{
+    background:#f8fbff;
+    border-left:5px solid var(--secondary);
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+}
+
+.upload-box{
+    border:2px dashed var(--secondary);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    margin-top:20px;
+}
+
+.upload-box p{
+    margin-bottom:10px;
+}
+
+.upload-note{
+    margin-top:10px;
+    color:#666;
+    font-size:13px;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:14px 25px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    opacity:.9;
+}
+
+.btn-secondary{
+    background:var(--secondary);
+    color:var(--primary);
+}
+
+.btn-secondary:hover{
+    opacity:.9;
+}
+
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .input-group.full{
+        grid-column:span 1;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">U</div>
+        <h1>Pendaftaran Mahasiswa Baru</h1>
+        <div class="slogan">
+            Membangun Generasi Berintegritas, Berilmu, dan Berdaya Saing Global
+        </div>
+    </div>
+
+    <form class="form-card">
+
+        <!-- SLIDE 1 -->
+        <div class="step active" id="step1">
+
+            <h2 class="section-title">Identitas Pendaftar</h2>
+
+            <div class="grid">
+
+                <div class="input-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Karakter Lengkap</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="input-group full">
+                    <label>
+                        Karakter dan Nama
+                    </label>
+                    <input type="text" placeholder="Contoh: Sky`Adnan">
+                    <span class="note">
+                        Format: Karakter`Nama
+                    </span>
+                </div>
+
+                <div class="input-group">
+                    <label>Tempat, Tanggal Lahir</label>
+                    <input type="text" placeholder="Bandung, 01 Januari 2000">
+                </div>
+
+                <div class="input-group">
+                    <label>Nomor Telepon</label>
+                    <input type="tel">
+                </div>
+
+                <div class="input-group full">
+                    <label>Program Studi</label>
+                    <select required>
+                        <option value="">Pilih Program Studi</option>
+                        <option>Hukum</option>
+                        <option>Kedokteran Umum</option>
+                        <option>Filsafat Murni</option>
+                        <option>Perfilman</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="checkbox-area">
+                <label>
+                    <input type="checkbox" required>
+                    Saya menyatakan bahwa seluruh data yang saya isi adalah benar dan dapat dipertanggungjawabkan.
+                </label>
+            </div>
+
+            <div class="buttons">
+                <div></div>
+                <button type="button" class="btn-primary" onclick="nextStep()">
+                    Lanjut →
+                </button>
+            </div>
+
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="step" id="step2">
+
+            <h2 class="section-title">Tes Studi Kasus & Persyaratan</h2>
+
+            <div class="question-box">
+                <strong>Pertanyaan 1</strong>
+                <p style="margin-top:10px;">
+                    Pemerintah berencana menerapkan kurikulum baru yang lebih menekankan
+                    keterampilan digital dibandingkan hafalan. Menurut Anda, apa dampak
+                    positif dan tantangan yang mungkin muncul bagi pendidikan di Indonesia?
+                </p>
+
+                <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+
+            <div class="question-box">
+                <strong>Pertanyaan 2</strong>
+                <p style="margin-top:10px;">
+                    Sebuah sekolah di daerah terpencil memiliki akses internet yang sangat
+                    terbatas. Jika Anda menjadi bagian dari tim pengembang pendidikan,
+                    solusi apa yang akan Anda usulkan agar siswa tetap mendapatkan
+                    pendidikan berkualitas?
+                </p>
+
+                <textarea placeholder="Tulis jawaban Anda di sini..."></textarea>
+            </div>
+
+            <div class="upload-box">
+                <p><strong>Unggah Bukti Persyaratan</strong></p>
+
+                <p>
+                    Sebar list ke 20 LPM<br>
+                    Unggah poster di status Whatsapp<br>
+                    Masuk LPM resmi<br>
+                    Ikuti saluran<br>
+                    Simpan kontak registrasi
+                </p>
+
+                <input type="file">
+
+                <div class="upload-note">
+                    Catatan: Unggah dalam bentuk satu media dengan format <b>grid</b>.
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="button" class="btn-secondary" onclick="prevStep()">
+                    ← Kembali
+                </button>
+
+                <button type="submit" class="btn-primary">
+                    Kirim Pendaftaran
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+function nextStep(){
+    document.getElementById("step1").classList.remove("active");
+    document.getElementById("step2").classList.add("active");
+}
+
+function prevStep(){
+    document.getElementById("step2").classList.remove("active");
+    document.getElementById("step1").classList.add("active");
+}
+</script>
+
+</body>
+</html>
